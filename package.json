@@ -1,0 +1,22 @@
+{
+  "name": "chatner-chat",
+  "version": "1.0.0",
+  "description": "Simple chat app using Socket.io and NodeJS Express",
+  "author": "Rachel Traina-Grandon <racheltrainagrandon@gmail.com>",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "helmet": "^3.0.0",
+    "session-file-store": "^0.2.2",
+    "socket.io": "1.5.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec ./tests/spec.js",
+    "start": "node server.js"
+  }
+}
