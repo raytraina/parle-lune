@@ -9,7 +9,7 @@ var path = require('path');
 app.get('/', function(req, res){
   var express=require('express');
   app.use(express.static(path.join(__dirname)));
-  res.sendFile(path.join(__dirname, '../chatner', './templates/index.html'));
+  res.sendFile(path.join(__dirname, '../parle-lune', './templates/index.html'));
 });
 
 // Online users list // Not currently used, here for future versions
@@ -18,6 +18,23 @@ var usernames = {};
 // Registers events on socket connection and emits an event to connected clients
 io.on('connection', function(socket){ 
   console.log('A user has connected\n');
+
+  socket.on('chat message', function(from, msg){
+    io.emit('chat message', from, msg);
+    console.log(from + ' has sent a message')
+  });
+
+  // user handling
+
+  // notify user
+
+  socket.on('new message', function(user){
+    io.emit('new message', user);
+  });
+
+  // messages
+
+  // session handling
 });
  
 // Attaches server to engine.io instance bound to port 3000
