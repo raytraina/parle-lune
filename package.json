@@ -1,12 +1,14 @@
 {
-  "name": "chatner-chat",
+  "name": "parle-lune-chat",
   "version": "1.0.0",
-  "description": "Simple chat app using Socket.io and NodeJS Express",
+  "description": "Simple chat app using Socket.io and Node.js Express.js",
   "author": "Rachel Traina-Grandon <racheltrainagrandon@gmail.com>",
   "dependencies": {
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "helmet": "^3.0.0",
+    "http": "0.0.0",
+    "path": "^0.12.7",
     "session-file-store": "^0.2.2",
     "socket.io": "1.5.0"
   },

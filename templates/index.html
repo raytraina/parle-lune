@@ -1,7 +1,7 @@
 <!doctype html>
   <html>
    <head>
-    <title>chatner</title>
+    <title>parlé lune</title>
     <link rel="stylesheet" href="../styles/style.css" type="text/css">
     <link rel="shortcut icon" href="../assets/vulcan.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -9,11 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="../js/chat.js"></script>
+    <style type="text/css"> body { background-image:url(../assets/stardust_@2X.png); } </style>
   </head>
   <body> 
     <div class="container-fluid">
       <h1>
-        <span id="title">chatner</span>
+        <span id="title">parlé lune</span>
       </h1>
       <div class="row">
         <div class="col-xs-12 chat">
@@ -21,9 +22,9 @@
           <span id="notify-user"></span>
         </div>
       </div>
-      <form id="chat-form" action="" onsubmit="">
+      <form id="chat-form" action="" onsubmit="return submitFunction();">
         <input type="hidden" id="user" value="" />
-        <input id="m" autocomplete="off" onkeyup="" placeholder="Enter. . ." /><input type="submit" id="button" value="SEND"/>
+        <input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Enter. . ." /><input type="submit" id="button" value="SEND"/>
       </form>
     </div>
   </body>
