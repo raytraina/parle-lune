@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////////
-// This is the client file
+// Client file for Parle Lune
+////////////////////////////////////////////////////
 
 // Inits socket then loads and connects to socket.io-client
 var socket = io();
@@ -10,7 +11,7 @@ $(document).ready(function(){
   // Emits username
   socket.emit('add user', username);
   // Loads stored messages
-  getMessages();
+  // ADD LATER
   $('#user').val(username);
   socket.emit('chat message', 'Bot', 'User <b style="font-weight:600; color: #D84315;">' + username + '</b> has joined');
   // Logs username to client console
