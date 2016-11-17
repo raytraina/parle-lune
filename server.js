@@ -24,17 +24,19 @@ io.on('connection', function(socket){
     console.log(from + ' has sent a message')
   });
 
-  // user handling
+  // connect session handling
 
-  // notify user
+  socket.on('notify user', function(user){
+    io.emit('notify user', user);
+  });
 
   socket.on('new message', function(user){
     io.emit('new message', user);
   });
 
-  // messages
+  // archived messages handling
 
-  // session handling
+  // disconnect session handling
 });
  
 // Attaches server to engine.io instance bound to port 3000
