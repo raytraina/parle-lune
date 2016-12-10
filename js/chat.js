@@ -55,3 +55,6 @@ socket.on('notify user', function(user){
   // Sets timeout for clearing typing message
   setTimeout(function(){ $('#notify-user').text(''); }, 10000);;
 });
+
+// ADD EMOJI SUPPORT
+// https://github.com/node-modules/emoji
