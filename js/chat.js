@@ -25,7 +25,7 @@ function submitFunction() {
   var from = $('#user').val();
   var message = $('#m').val();
   if(message != '') {
-  socket.emit('chat message', from, message);
+    socket.emit('chat message', from, message);
   }
   // Note: Required for message submission
   $('#m').val('').focus();
@@ -53,7 +53,7 @@ socket.on('notify user', function(user){
     $('#notify-user').text(user + ' is typing ...');
   }
   // Sets timeout for clearing typing message
-  setTimeout(function(){ $('#notify-user').text(''); }, 10000);;
+  setTimeout(function(){ $('#notify-user').text(''); }, 10000);
 });
 
 // ADD EMOJI SUPPORT

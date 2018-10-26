@@ -8,6 +8,7 @@ var http = require('http').Server(app);
 // Initialize a new instance of socket.io by passing http server object
 var io = require('socket.io')(http);
 var path = require('path');
+var express=require('express');
 
 // Security measure to protect from common web vulnerabilities, including XSS
 var helmet = require('helmet');
@@ -37,16 +38,8 @@ app.use(session({
  
 // Initializes application routing, defines route handler at '/'
 app.get('/', function(req, res){
-  var express=require('express');
+  // var express=require('express');
   app.use(express.static(path.join(__dirname)));
-  // For dev purposes, remove for production
-  console.log('\nSession has been entered: \n' + req.sessionID);
-  res.sendFile(path.join(__dirname, '../parle-lune', './templates/index.html'));
-});
-
-// Initializes count of views in session, could later be stored to database
-// Currently session is being stored to ./sessions and is serialized as JSON
-app.get('/', function(req, res, next) {
   var sess = req.session;
   if (sess.views) {
     sess.views++;
@@ -56,7 +49,24 @@ app.get('/', function(req, res, next) {
     sess.views = 1;
     res.end();
   }
+  // For dev purposes, remove for production
+  console.log('\nSession has been entered: \n' + req.sessionID);
+  res.sendFile(path.join(__dirname, '../parle-lune', './templates/index.html'));
 });
+
+// Initializes count of views in session, could later be stored to database
+// Currently session is being stored to ./sessions and is serialized as JSON
+// app.get('/', function(req, res, next) {
+//   var sess = req.session;
+//   if (sess.views) {
+//     sess.views++;
+//     res.setHeader('Content-Type', 'text/html');
+//     res.end();
+//   } else {
+//     sess.views = 1;
+//     res.end();
+//   }
+// });
 
 ////////////////////////////////////////////////////
 // Future app routes, like '/login', can be easily added like so:
